@@ -4,6 +4,9 @@ import graphics
 public class GraphismesPlateau{
     Picture plateau = new Picture("images/Plateau.jpg");
     public method setupGeneral(){
+    /**
+    Le placement n'est pas encore terminé mais toutes les images sont implantées sur le plateau (dans le vide mais elles sont là)
+    */
         int nombreAleatoire1 = Math.random(0 - 1000);
         int nombreAleatoire2 = Math.random(0 - 1000);
         Picture chatBleu = new Picture("images/Bleu/Animaux/Chat.jpg");
@@ -33,6 +36,9 @@ public class GraphismesPlateau{
         }
 
     }
+    /**
+    ici les distances sont à compter en pixels
+    */
     public method glisserG(int distance,Picture pic){
         for(int i = 0; i<distance;i++){
             pic.translate(1,0);
