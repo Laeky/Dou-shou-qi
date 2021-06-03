@@ -15,7 +15,7 @@ import java.lang.Math;
  
 
 public class GraphismesPlateau{
-    FileInputStream plateau = new FileInputStream("FileInputStreams/Plateau.jpg");
+    FileInputStream plateau = new FileInputStream("images/Plateau.jpg");
     public method setupGeneral(){
     	int min = 0;
     	int max = 1000;
@@ -48,6 +48,40 @@ public class GraphismesPlateau{
         FileInputStream chienRouge = new FileInputStream("images/Rouge/Animaux/Chien.jpg");
         }
         
+        lionBleu.translate.setX(100);
+        lionBleu.translate.setY(137);
+        chienBleu.translate.setX(183);
+        chienBleu.translate.setY(220);
+        ratBleu.translate.setX(100);
+        ratBleu.translate.setY(300);
+        panthereBleu.translate.setX(270);
+        panthereBleu.translate.setY(300);
+        loupBleu.translate.setX(184);
+        loupBleu.translate.setY(300);
+        chatBleu.translate.setX(510);
+        chatBleu.translate.setY(220);
+        elephantBleu.translate.setX(590);
+        elephantBleu.translate.setY(300);
+        tigreBleu.translate.setX(590);
+        tigreBleu.translate.setY(137);
+
+        lionRouge.translate.setX(590);
+        lionRouge.translate.setY(790);
+        chienRouge.translate.setX(507);
+        chienRouge.translate.setY(700);
+        ratRouge.translate.setX(590);
+        ratRouge.translate.setY(625);
+        panthereRouge.translate.setX(430);
+        panthereRouge.translate.setY(625);
+        loupRouge.translate.setX(265);
+        loupRouge.translate.setY(625);
+        chatRouge.translate.setX(200);
+        chatRouge.translate.setY(700);
+        elephantRouge.translate.setX(100);
+        elephantRouge.translate.setY(625);
+        tigreRouge.translate.setX(100);
+        tigreRouge.translate.setY(790);
+
 
     }
     public method glisserG(int distance,FileInputStream pic){
