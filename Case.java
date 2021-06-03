@@ -1,7 +1,7 @@
 /**
  * Classe implémentant les cases du plateau du jeu Dou Shou Qi et les méthodes associées.
  * @author Elias ALICHE 11923622
- * @author Nivetha (?) ***??***
+ * @author Nivetha VIJAYATHARAN 11905642
  */
 
 import java.lang.Math;
