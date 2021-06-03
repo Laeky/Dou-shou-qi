@@ -166,7 +166,7 @@ public class Plateau {
         // Placement des pièces de l'équipe "ROUGE"
         this.plateau[8][6].setContenu(tigre_r);
         this.plateau[8][0].setContenu(lion_r);
-        this.plateau[7][5].setContenu(chat_r);
+        this.plateau[5][7].setContenu(chat_r);
         this.plateau[7][1].setContenu(chien_r);
         this.plateau[6][6].setContenu(elephant_r);
         this.plateau[6][4].setContenu(loup_r);
