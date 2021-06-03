@@ -1,67 +1,78 @@
-import graphics
+package org.o7planning.javafx.FileInputStream;
+ 
+import java.io.InputStream;
+ 
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.FileInputStream.FileInputStream;
+import javafx.scene.FileInputStream.FileInputStreamView;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+import java.util.Scanner;
+import java.lang.Math;
 
+ 
 
 public class GraphismesPlateau{
-    Picture plateau = new Picture("images/Plateau.jpg");
+    FileInputStream plateau = new FileInputStream("FileInputStreams/Plateau.jpg");
     public method setupGeneral(){
-    /**
-    Le placement n'est pas encore terminé mais toutes les images sont implantées sur le plateau (dans le vide mais elles sont là)
-    */
-        int nombreAleatoire1 = Math.random(0 - 1000);
-        int nombreAleatoire2 = Math.random(0 - 1000);
-        Picture chatBleu = new Picture("images/Bleu/Animaux/Chat.jpg");
-        Picture elephantBleu = new Picture("images/Bleu/Animaux/eléphant.png");
-        Picture lionBleu = new Picture("images/Bleu/Animaux/Lion.png");
-        Picture loupBleu = new Picture("images/Bleu/Animaux/Loup.jpeg");
-        Picture panthereBleu = new Picture("images/Bleu/Animaux/Panthère.png");
-        Picture ratBleu = new Picture("images/Bleu/Animaux/Rat.png");
-        Picture tigreBleu = new Picture("images/Bleu/Animaux/Tigre.png");
+    	int min = 0;
+    	int max = 1000;
+    	int range = max-min+1;
+        int nombreAleatoire1 = (int)(Math.random() * range) + min;
+        int nombreAleatoire2 = (int)(Math.random() * range) + min;
+        FileInputStream chatBleu = new FileInputStream("images/Bleu/Animaux/Chat.jpg");
+        FileInputStream elephantBleu = new FileInputStream("images/Bleu/Animaux/eléphant.png");
+        FileInputStream lionBleu = new FileInputStream("images/Bleu/Animaux/Lion.png");
+        FileInputStream loupBleu = new FileInputStream("images/Bleu/Animaux/Loup.jpeg");
+        FileInputStream panthereBleu = new FileInputStream("images/Bleu/Animaux/Panthère.png");
+        FileInputStream ratBleu = new FileInputStream("images/Bleu/Animaux/Rat.png");
+        FileInputStream tigreBleu = new FileInputStream("images/Bleu/Animaux/Tigre.png");
         if(nombreAleatoire1 == 1){
-            Picture chienBleu = new Picture("images/Bleu/Animaux/Chien.png");
+            FileInputStream chienBleu = new FileInputStream("images/Bleu/Animaux/Chien.png");
         }else{
-        Picture chienBleu = new Picture("images/Bleu/Animaux/Chien.jpg");
+        FileInputStream chienBleu = new FileInputStream("images/Bleu/Animaux/Chien.jpg");
         }
 
-        Picture chatRouge = new Picture("images/Rouge/Animaux/Chat.jpg");
-        Picture elephantRouge = new Picture("images/Rouge/Animaux/eléphant.png");
-        Picture lionRouge = new Picture("images/Rouge/Animaux/Lion.png");
-        Picture loupRouge = new Picture("images/Rouge/Animaux/Loup.jpeg");
-        Picture panthereRouge = new Picture("images/Rouge/Animaux/Panthère.png");
-        Picture ratRouge = new Picture("images/Rouge/Animaux/Rat.png");
-        Picture tigreRouge = new Picture("images/Rouge/Animaux/Tigre.png");
+        FileInputStream chatRouge = new FileInputStream("images/Rouge/Animaux/Chat.jpg");
+        FileInputStream elephantRouge = new FileInputStream("images/Rouge/Animaux/eléphant.png");
+        FileInputStream lionRouge = new FileInputStream("images/Rouge/Animaux/Lion.png");
+        FileInputStream loupRouge = new FileInputStream("images/Rouge/Animaux/Loup.jpeg");
+        FileInputStream panthereRouge = new FileInputStream("images/Rouge/Animaux/Panthère.png");
+        FileInputStream ratRouge = new FileInputStream("images/Rouge/Animaux/Rat.png");
+        FileInputStream tigreRouge = new FileInputStream("images/Rouge/Animaux/Tigre.png");
         if(nombreAleatoire2 == 1){
-            Picture chienRouge = new Picture("images/Rouge/Animaux/Chien.png");
+            FileInputStream chienRouge = new FileInputStream("images/Rouge/Animaux/Chien.png");
         }else{
-        Picture chienRouge = new Picture("images/Rouge/Animaux/Chien.jpg");
+        FileInputStream chienRouge = new FileInputStream("images/Rouge/Animaux/Chien.jpg");
         }
+        
 
     }
-    /**
-    ici les distances sont à compter en pixels
-    */
-    public method glisserG(int distance,Picture pic){
+    public method glisserG(int distance,FileInputStream pic){
         for(int i = 0; i<distance;i++){
-            pic.translate(1,0);
+            pic.translate.setX(1);
         }
     }
 
-    public method glisserH(int distance,Picture pic){
+    public method glisserH(int distance,FileInputStream pic){
         for(int i = 0; i<distance;i++){
-            pic.translate(0,1);
+            pic.translate.setY(1);
         }
     }
-    public method glisserD(int distance,Picture pic){
+    public method glisserD(int distance,FileInputStream pic){
         for(int i = 0; i<distance;i++){
-            pic.translate(-1,0);
+            pic.translate.setX(-1);
         }
     }
 
-    public method glisserB(int distance,Picture pic){
+    public method glisserB(int distance,FileInputStream pic){
         for(int i = 0; i<distance;i++){
-            pic.translate(0,-1);
+            pic.translate.setY(-1);
         }
     }
-    public method mourir(Picture pic){
+    public method mourir(FileInputStream pic){
         while(pic.width != 0){
             pic.grow(-1,-1);
         }
