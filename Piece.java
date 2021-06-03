@@ -279,5 +279,28 @@ public class Piece{
         return true;
     }
    
+    public String toString(){
+        switch (espece) {
+            case CHAT:
+                return "C";
+            case TIGRE:
+                return "T";
+            case LION:
+                return "L";
+            case RAT:
+                return "R";  
+            case LEOPARD:
+                return "P";
+            case CHIEN:
+                return "D";
+            case LOUP:
+                return "W";
+            case ELEPHANT:
+                return "E";  
+                default:
+                return "X";
+        }
+    }
+
 
 }

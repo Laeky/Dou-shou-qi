@@ -14,7 +14,7 @@ public class Client extends Thread{
         String t ="";
         while(true){
             try {
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); // écoute sur le socket les instructions du serveur
                 //System.out.println(in.readLine());
             } catch (Exception e) {
                 e.printStackTrace();

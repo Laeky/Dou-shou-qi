@@ -281,5 +281,22 @@ public class Case{
         return true;
     }
 
+    public String toString(){
+        
+        if(nature==NatureCase.EAU){
+            return "~";
+        }
+        if(nature==NatureCase.PIEGE){
+            return "@";
+        }
+        if (nature==NatureCase.TANIERE) {
+            return "^";
+            
+        }
+        if(contenu==null){
+            return " ";
+        }
+        return contenu.toString();
+    }
 
 }

@@ -27,7 +27,7 @@ public class Main extends Thread{
             Main t2 = new Main(red, plateau, Equipe.ROUGE);
             t.adversaire = t2;
             t2.adversaire = t;
-            t.start(); t2.start();
+            t.start(); t2.start(); // activation des threads
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,50 +41,64 @@ public class Main extends Thread{
     }
     public void run(){
         while(plateau.getGagnant() == null) {
+            if(this.equipe==Equipe.BLEU){
+                System.out.println(plateau.toString());
+            }
             BufferedReader in;
-            String[] cmd = new String[2];
+            String[] cmd = new String[2]; //cmd prend la commande reçu
             try {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                System.out.println(in.readLine());
-                cmd = in.readLine().split("/");
+                //System.out.println(in.readLine()); //mettre dans "in" ce qu'on lit
+                cmd = in.readLine().split("/");//séparer la chaine de caractère en deux avec la commande et les coordonées
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (plateau.getTour() != this.equipe) continue;
+            System.out.println(cmd[0]); 
+            System.out.println(cmd[1]); 
+            if (plateau.getTour() != this.equipe) continue;// check si c'est toujours le tour de l'équipe
             // action
 
             switch (cmd[0]) {
-                case "dep":
-                    int[][] c = Arrays.stream(cmd[1].split(";"))
+                case "dep": // si déplacement
+                    int[][] c = new int[2][2];
+                    String[] splt=cmd[1].split(";");
+                    for(int i=0; i<2;i++){
+                        String[] tmp = splt[i].split("-");
+                        System.out.println(splt[i]); 
+                        c[i][0]=Integer.parseInt(tmp[0]);
+                        
+                        c[i][0]=Integer.parseInt(tmp[1]);
+                    }
+                    
+                    /*Arrays.stream(cmd[1].split(";"))
                             .map(s ->
                                     Arrays.stream(s.split(".")).mapToInt(i ->
-                                            Integer.parseInt(i, 10)).toArray()).toArray(int[][]::new);
+                                            Integer.parseInt(i, 10)).toArray()).toArray(int[][]::new);*/
                     boolean succes = plateau.action(c[0][0],c[0][1],plateau.getPlateau()[c[1][0]][c[1][1]]);
                     if (succes) {
                         if (plateau.getPlateau()[c[1][0]][c[1][1]].getNature() == NatureCase.PIEGE)
                         {
-                            this.send("trap/" + cmd[1]);
-                            adversaire.send("trap/" + cmd[1]);
+                            this.send("trap/" + cmd[1]); // renvoie la commande avec piège au joueur
+                            adversaire.send("trap/" + cmd[1]); // renvoie la commande avec piège à l'adversaire
                         }
                         else {
-                            this.send(cmd[0] + "/" + cmd[1]);
-                            adversaire.send(cmd[0] + "/" + cmd[1]);
+                            this.send(cmd[0] + "/" + cmd[1]);// renvoie la commande avec case vide  au joueur
+                            adversaire.send(cmd[0] + "/" + cmd[1]);// renvoie la commande avec case vide  à l'adversaire
                         }
 
                     } else
-                        this.send("false");
+                        this.send("false"); //renvoie au joueur false , le déplacement n'a pas pu être effecuté
                     break;
                 default:
-                    this.send("false");
+                    this.send("false");//renvoie au joueur false , le déplacement n'a pas pu être effecuté
 
             }
-
-
+            
         }
-        this.send("gg/" + plateau.getGagnant().toString());
-        adversaire.send("gg/" + plateau.getGagnant().toString());
+        this.send("gg/" + plateau.getGagnant().toString()); // le joueur à gagné
+        adversaire.send("gg/" + plateau.getGagnant().toString()); // l'adversaire à gagné
     }
-
+//agit comme un lock le thread
     public synchronized void send(String s){
         PrintStream out = null;
         try {
@@ -94,7 +108,6 @@ public class Main extends Thread{
         }
         out.println(s);
     }
-
 
 
 }

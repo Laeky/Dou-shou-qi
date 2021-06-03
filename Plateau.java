@@ -123,9 +123,9 @@ public class Plateau {
         this.plateau[2][8].setNature(NatureCase.PIEGE);
         this.plateau[2][8].setEquipe(Equipe.ROUGE);
         this.plateau[3][7].setNature(NatureCase.PIEGE);
-        this.plateau[2][8].setEquipe(Equipe.ROUGE);
+        this.plateau[3][7].setEquipe(Equipe.ROUGE);
         this.plateau[4][8].setNature(NatureCase.PIEGE);
-        this.plateau[2][8].setEquipe(Equipe.ROUGE);
+        this.plateau[4][8].setEquipe(Equipe.ROUGE);
         this.plateau[3][8].setNature(NatureCase.TANIERE);
         this.plateau[3][8].setEquipe(Equipe.ROUGE);
 
@@ -155,23 +155,23 @@ public class Plateau {
         //BLEUS EN BAS, ROUGES EN HAUT 
         // Placement des pièces de l'équipe "BLEU"
         this.plateau[0][0].setContenu(tigre_n);
-        this.plateau[0][6].setContenu(lion_n);
+        this.plateau[6][0].setContenu(lion_n);
         this.plateau[1][1].setContenu(chat_n);
-        this.plateau[1][5].setContenu(chien_n);
-        this.plateau[2][0].setContenu(elephant_n);
+        this.plateau[5][1].setContenu(chien_n);
+        this.plateau[0][2].setContenu(elephant_n);
         this.plateau[2][2].setContenu(loup_n);
-        this.plateau[2][4].setContenu(leopard_n);
-        this.plateau[2][6].setContenu(rat_n);
+        this.plateau[4][2].setContenu(leopard_n);
+        this.plateau[6][2].setContenu(rat_n);
         
         // Placement des pièces de l'équipe "ROUGE"
-        this.plateau[8][6].setContenu(tigre_r);
-        this.plateau[8][0].setContenu(lion_r);
+        this.plateau[6][8].setContenu(tigre_r);
+        this.plateau[0][8].setContenu(lion_r);
         this.plateau[5][7].setContenu(chat_r);
-        this.plateau[7][1].setContenu(chien_r);
+        this.plateau[1][7].setContenu(chien_r);
         this.plateau[6][6].setContenu(elephant_r);
-        this.plateau[6][4].setContenu(loup_r);
-        this.plateau[6][2].setContenu(leopard_r);
-        this.plateau[6][0].setContenu(rat_r);
+        this.plateau[4][6].setContenu(loup_r);
+        this.plateau[2][6].setContenu(leopard_r);
+        this.plateau[0][6].setContenu(rat_r);
 
     }
 
@@ -196,4 +196,15 @@ public class Plateau {
         return true;
     }
     
+    public String toString(){
+        String vide = "";
+        for(int i=0;i<7;i++){
+            for(int j=0;j<9;j++){
+                vide=vide+plateau[i][j].toString();
+            }
+            vide=vide+'\n';
+        }
+        return vide;
+    }
+
 }
