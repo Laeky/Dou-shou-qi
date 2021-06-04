@@ -20,6 +20,7 @@ Attention L'equipe bleu joue en premier!
 
 #### Deplacement des pieces
 De la forme "[commande]/[Emplacement coordonées x-y];[Destination coordonées x-y]"
+
 exemple : "dep/0-0;0-1" -> déplace la pièce de l'emplacement 0,0 à 0,1 .
 
 
