@@ -26,11 +26,13 @@ public class Main extends Thread{
         try {
             ServerSocket socketServeur = new ServerSocket(port);
             System.out.println("Lancement du serveur");
+            //attend pour chaque socket un joueur
             Socket red = socketServeur.accept();
             Socket blue = socketServeur.accept();
             Main t = new Main(blue, plateau, Equipe.BLEU);
             Main t2 = new Main(red, plateau, Equipe.ROUGE);
-            t.adversaire = t2;
+            //attribution des adversaires 
+            t.adversaire = t2; 
             t2.adversaire = t;
             t.start(); t2.start(); // activation des threads
 
@@ -53,7 +55,6 @@ public class Main extends Thread{
             String[] cmd = new String[2]; //cmd prend la commande reçu
             try {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                //System.out.println(in.readLine()); //mettre dans "in" ce qu'on lit
                 cmd = in.readLine().split("/");//séparer la chaine de caractère en deux avec la commande et les coordonées
             } catch (Exception e) {
                 e.printStackTrace();
@@ -64,7 +65,7 @@ public class Main extends Thread{
             // action
 
             switch (cmd[0]) {
-                case "dep": // si déplacement
+                case "dep": // si déplacement on traite la commande
                     int[][] c = new int[2][2];
                     String[] splt=cmd[1].split(";");
                     for(int i=0; i<2;i++){
