@@ -1,6 +1,7 @@
 /**
  * Classe implémentant les pièces du jeu Dou Shou Qi, ou les "animaux".
  * @author Elias ALICHE 11923622
+ * @author Gowshigan SELLADURAI 11707606 (toString)
  */
 
 import java.util.*;
@@ -278,7 +279,11 @@ public class Piece{
             return false;
         return true;
     }
-   
+   /**
+	 * Renvoie une représentation des piece sous forme de chaîne de caractères.
+	 * @return une représentation d'une piece sous forme de chaîne de caractères
+	 */
+	@Override
     public String toString(){
         switch (espece) {
             case CHAT:

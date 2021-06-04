@@ -1,6 +1,7 @@
 /**
  * Classe implémentant le plateau du jeu Dou Shou Qi, ainsi que les actions qui lui sont liées
  * @author Elias ALICHE 11923622
+ * @author Thomas Paris 11704079  (toString)
  */
 
 
@@ -195,7 +196,11 @@ public class Plateau {
             orig.entreePiege();
         return true;
     }
-    
+    /**
+	 * Renvoie une représentation du plateau sous forme de chaîne de caractères.
+	 * @return une représentation du plateau sous forme de chaîne de caractères
+	 */
+	@Override
     public String toString(){
         String vide = "";
         for(int i=0;i<7;i++){

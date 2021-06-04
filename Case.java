@@ -2,6 +2,7 @@
  * Classe implémentant les cases du plateau du jeu Dou Shou Qi et les méthodes associées.
  * @author Elias ALICHE 11923622
  * @author Nivetha VIJAYATHARAN 11905642
+ * @author Gowshigan SELLADURAI 11707606 ( toString)
  */
 
 import java.lang.Math;
@@ -280,7 +281,11 @@ public class Case{
             return false;
         return true;
     }
-
+	/**
+	 * Renvoie une représentation du case sous forme de chaîne de caractères.
+	 * @return une représentation d'une case sous forme de chaîne de caractères
+	 */
+	@Override
     public String toString(){
         
         if(nature==NatureCase.EAU){

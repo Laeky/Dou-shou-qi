@@ -1,3 +1,7 @@
+/**
+ * Programme Client
+ * @author Thomas Paris 11704079
+ */
 package Reseau;
 
 import java.io.*;

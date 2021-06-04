@@ -1,3 +1,8 @@
+/**
+ * Programme principal/Serveur
+ * @author Amanda Zane 11809869
+ * @author Gowshigan Selladurai 11707606
+ */
 import java.net.*;
 import java.io.*;
 import java.util.Arrays;
@@ -70,10 +75,6 @@ public class Main extends Thread{
                         c[i][0]=Integer.parseInt(tmp[1]);
                     }
                     
-                    /*Arrays.stream(cmd[1].split(";"))
-                            .map(s ->
-                                    Arrays.stream(s.split(".")).mapToInt(i ->
-                                            Integer.parseInt(i, 10)).toArray()).toArray(int[][]::new);*/
                     boolean succes = plateau.action(c[0][0],c[0][1],plateau.getPlateau()[c[1][0]][c[1][1]]);
                     if (succes) {
                         if (plateau.getPlateau()[c[1][0]][c[1][1]].getNature() == NatureCase.PIEGE)
@@ -98,7 +99,7 @@ public class Main extends Thread{
         this.send("gg/" + plateau.getGagnant().toString()); // le joueur à gagné
         adversaire.send("gg/" + plateau.getGagnant().toString()); // l'adversaire à gagné
     }
-//agit comme un lock le thread
+//agit comme un verrou sur le thread afin d'eviter des conflits
     public synchronized void send(String s){
         PrintStream out = null;
         try {
