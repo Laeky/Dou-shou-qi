@@ -15,7 +15,7 @@ import java.lang.Math;
  
 
 public class GraphismesPlateau{
-    FileInputStream plateau = new FileInputStream("images/Plateau.jpg");
+    FileInputStream plateau = new FileInputStream("images/Neutre/Misc/Plateau.jpg");
     public method setupGeneral(){
     	int min = 0;
     	int max = 1000;
