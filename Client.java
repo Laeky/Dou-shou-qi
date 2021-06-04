@@ -44,18 +44,20 @@ public class Client extends Thread{
             e.printStackTrace();
         }
 
+        //on etabli la comunication vers le serveur
         Scanner sc = new Scanner(System.in);
         PrintStream out = null;
         try {
-            out = new PrintStream(socket.getOutputStream());
+            out = new PrintStream(socket.getOutputStream()); 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        // envoie ce que l'utilisateur tape au serveur
         c.start();
         while(true){ 
             String str = sc.nextLine();
-            out.println(str);
+            out.println(str);  
         }
     }
     
