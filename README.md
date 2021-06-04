@@ -8,7 +8,8 @@
 ### Serveur :
 "java Main"
 ### Client:
-Il faut impérativement 2 client connecté au serveur:
+Il faut impérativement 2 clients connectés au serveur:
+
 Equipe Rouge:
 "java Client.java "127.0.0.1" 
 
