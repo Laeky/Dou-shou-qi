@@ -16,7 +16,7 @@ Equipe Rouge:
 Equipe Bleu:
 "java Client.java "127.0.0.1"
 
-Attention L'equipe bleu joue en premier!
+Attention L'equipe bleu joue en premier! Sinon le serveur ignore les déplacements !
 
 #### Deplacement des pieces
 De la forme "[commande]/[Emplacement coordonées x-y];[Destination coordonées x-y]"
