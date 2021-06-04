@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.util.Scanner;
 import java.lang.Math;
 
- 
+ /*@author Amine KHEDDAOUI 11807877*/
 
 public class GraphismesPlateau{
     FileInputStream plateau = new FileInputStream("images/Neutre/Misc/Plateau.jpg");
