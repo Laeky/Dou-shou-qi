@@ -16,10 +16,9 @@ public class Client extends Thread{
     public Socket socket;
     public void run(){
         String t ="";
-        while(true){
+        while(true){ // boucle infinie pour ecouter 
             try {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); // écoute sur le socket les instructions du serveur
-                //System.out.println(in.readLine());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -33,13 +32,13 @@ public class Client extends Thread{
         PrintStream theOutputStream;
         InetAddress serveur = null;
         try {
-            serveur = InetAddress.getByName(args[0]);
+            serveur = InetAddress.getByName(args[0]); 
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
         Client c = null;
         try {
-            socket = new Socket(serveur, port);
+            socket = new Socket(serveur, port); // on essaye de se connecter au serveur
             c = new Client(socket);
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,11 +53,13 @@ public class Client extends Thread{
         }
 
         c.start();
-        while(true){
+        while(true){ 
             String str = sc.nextLine();
             out.println(str);
         }
     }
+    
+    //creation du socket pour communiquer
     public Client(Socket socket){
         this.socket = socket;
 
